@@ -1,0 +1,1 @@
+[![Build status](https://ci.appveyor.com/api/projects/status/cleh50txlrwdwnd3?svg=true)](https://ci.appveyor.com/project/A1lx/organizer-front)

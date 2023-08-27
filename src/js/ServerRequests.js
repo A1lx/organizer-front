@@ -1,4 +1,4 @@
-import newMessages from "./newMessages"; 
+import newMessages from './newMessages';
 
 // класс для общения с сервером
 export default class ServerRequests {
@@ -7,36 +7,36 @@ export default class ServerRequests {
     this.reader = new FileReader();
   }
 
-// отправка новых сообщений
+  // отправка новых сообщений
   sendMessages() {
     const sendForm = document.querySelector('.send-form');
     const sendFormInput = document.querySelector('.send-form-input');
 
     sendForm.addEventListener('submit', (e) => {
       e.preventDefault();
-      let message = sendFormInput.value;
-      
+      const message = sendFormInput.value;
+
       if (!message.trim()) {
         return;
       }
 
       this.ws.send(JSON.stringify(message));
       sendFormInput.value = '';
-    })
+    });
   }
 
-// получение, обновление, добавление сообщений с сервера
+  // получение, обновление, добавление сообщений с сервера
   wsMethods() {
     this.ws.addEventListener('open', (e) => {
       console.log(e);
       console.log('ws open');
     });
-    
+
     this.ws.addEventListener('close', (e) => {
       console.log(e);
       console.log('ws close');
     });
-    
+
     this.ws.addEventListener('error', (e) => {
       console.log(e);
       console.log('ws error');
@@ -47,7 +47,8 @@ export default class ServerRequests {
       newMessages(data);
     });
   }
-//отправка файлов (пока пытаемся с картинками) на сервер
+
+  // отправка файлов (пока пытаемся с картинками) на сервер
   sendFiles() {
     const iconBox = document.querySelector('.add-file-icon-box');
     const fileInput = document.querySelector('.overlapped');
@@ -63,14 +64,14 @@ export default class ServerRequests {
       fileInput.dispatchEvent(new MouseEvent('click'));
     });
 
-    fileInput.addEventListener('change', (e) => {
+    fileInput.addEventListener('change', () => {
       const file = fileInput.files && fileInput.files[0];
       if (!file) return;
 
       this.reader.addEventListener('load', displayContent);
       this.reader.readAsDataURL(file);
     });
-    //драг и дроп
+    // драг и дроп
     body.addEventListener('dragover', (e) => {
       e.preventDefault();
     });
@@ -85,4 +86,3 @@ export default class ServerRequests {
     });
   }
 }
-

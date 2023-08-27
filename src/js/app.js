@@ -1,6 +1,6 @@
-import Emojis from "./Emojis";
-import Controller from "./Controller";
-import ServerRequests from "./ServerRequests";
+import Emojis from './Emojis';
+import Controller from './Controller';
+import ServerRequests from './ServerRequests';
 
 const newServerRequests = new ServerRequests();
 newServerRequests.wsMethods();

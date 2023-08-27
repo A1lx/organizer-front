@@ -1,4 +1,5 @@
 export default class Emojis {
+  // eslint-disable-next-line
   create() {
     const emojis = document.createElement('div');
     emojis.classList.add('emojis-box');
@@ -28,12 +29,14 @@ export default class Emojis {
     `;
     return emojis;
   }
-// добавление смайлика в инпут
+
+  // добавление смайлика в инпут
+  // eslint-disable-next-line
   addEmoji() {
     const allEmoji = [...document.querySelectorAll('.emoji')];
     const sendFormInput = document.querySelector('.send-form-input');
-  
-    allEmoji.forEach(el => {
+
+    allEmoji.forEach((el) => {
       el.addEventListener('click', () => {
         sendFormInput.value += el.innerText;
       });
