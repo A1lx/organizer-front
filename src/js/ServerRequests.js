@@ -3,7 +3,7 @@ import newMessages from './newMessages';
 // класс для общения с сервером
 export default class ServerRequests {
   constructor() {
-    //this.ws = new WebSocket('ws://localhost:7070/ws');
+    // this.ws = new WebSocket('ws://localhost:7070/ws');
     this.ws = new WebSocket('ws://organizer-back-production.up.railway.app//ws');
     this.reader = new FileReader();
   }
